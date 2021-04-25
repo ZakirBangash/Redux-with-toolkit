@@ -4,14 +4,13 @@ import {
   decrement,
   increment,
   incrementByAmount,
-  incrementAsync,
-  incrementIfOdd,
   selectCount,
 } from './counterSlice';
 import styles from './Counter.module.css';
 
 export function Counter() {
   const count = useSelector(selectCount);
+
   const dispatch = useDispatch();
   const [incrementAmount, setIncrementAmount] = useState('2');
 
@@ -27,11 +26,18 @@ export function Counter() {
         >
           -
         </button>
-        <span className={styles.value}>{count}</span>
+        {console.log(count)}
+        
+        {/* <span className={styles.value}>{count}</span> */}
         <button
           className={styles.button}
           aria-label="Increment value"
-          onClick={() => dispatch(increment())}
+          onClick={() => dispatch(increment(
+            {
+              id:'23343432',
+              name: 'shahzain'
+            }
+          ))}
         >
           +
         </button>
@@ -49,7 +55,7 @@ export function Counter() {
         >
           Add Amount
         </button>
-        <button
+        {/* <button
           className={styles.asyncButton}
           onClick={() => dispatch(incrementAsync(incrementValue))}
         >
@@ -60,7 +66,7 @@ export function Counter() {
           onClick={() => dispatch(incrementIfOdd(incrementValue))}
         >
           Add If Odd
-        </button>
+        </button> */}
       </div>
     </div>
   );
